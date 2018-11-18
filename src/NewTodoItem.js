@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaPlus } from 'react-icons/fa'
 
 
 export default class NewTodoItem extends React.Component {
@@ -25,7 +26,7 @@ export default class NewTodoItem extends React.Component {
     return (
       <form onSubmit={onSubmit}>
         <input value={this.state.value} onChange={onChange} />
-        <input type="submit" value="+" />
+        <button><FaPlus /></button>
       </form>
     )
   }

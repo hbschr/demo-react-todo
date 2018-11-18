@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaTrash } from 'react-icons/fa'
 
 
 export default class TodoItem extends React.Component {
@@ -7,7 +8,7 @@ export default class TodoItem extends React.Component {
     return (
       <li>
         {this.props.value}
-        <input type="button" onClick={onDelete} value="x" />
+        <button onClick={onDelete}><FaTrash /></button>
       </li>
     )
   }
