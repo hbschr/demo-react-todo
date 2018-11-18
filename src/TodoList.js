@@ -3,9 +3,11 @@ import React from 'react';
 
 class TodoItem extends React.Component {
   render () {
+    const onDelete = this.props.onDelete
     return (
       <li>
         {this.props.value}
+        <input type="button" onClick={onDelete} value="x" />
       </li>
     )
   }
@@ -57,10 +59,16 @@ class TodoList extends React.Component {
     }))
   }
 
+  handleDelete (itemToDelete) {
+    this.setState(state => ({
+      list: state.list.filter(item => item !== itemToDelete)
+    }))
+  }
+
   render () {
     const newItem = this.handleCreate.bind(this)
     const todoItems = this.state.list.map((item, index) =>
-      <TodoItem key={index} value={item} />
+      <TodoItem key={index} value={item} onDelete={this.handleDelete.bind(this, item)} />
     )
     return (
       <div>
