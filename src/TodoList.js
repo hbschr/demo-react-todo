@@ -29,7 +29,7 @@ export default class TodoList extends React.Component {
       <TodoItem key={index} value={item} onDelete={this.handleDelete.bind(this, item)} />
     )
     return (
-      <div>
+      <div class="todo-list">
         <NewTodoItem onSubmit={newItem} />
         <ul>
           {todoItems}

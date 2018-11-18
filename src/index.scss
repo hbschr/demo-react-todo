@@ -1,18 +1,64 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+// config
 
-  p {
-    color: green;
-  }
+$page_width: 800px;
+$column_count: 10;
+
+
+// simple grid without gutter
+
+$column_width: $page_width / $column_count;
+
+@mixin grid_push ($columns) {
+  margin-left: $columns * $column_width;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+@mixin grid_width ($columns) {
+  box-sizing: border-box;
+  display: inline-block;
+  width: $columns * $column_width;
+}
+
+
+// layout
+
+html {
+  background-color: #ccc;
+}
+
+body {
+  background-color: #fff;
+  box-sizing: content-box;
+  margin: 20px auto;
+  padding: 10px;
+  width: $page_width;
+}
+
+.todo-list {
+  @include grid_push(2);
+  @include grid_width(6);
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    border-bottom: 1px solid #ccc;
+  }
+
+  form,
+  li {
+    line-height: 2;
+  }
+
+  form > input,
+  li > span:first-child {
+    @include grid_width(5);
+  }
+
+  form > .icon,
+  li > .icon {
+    @include grid_width(1);
+    text-align: center;
+  }
 }
