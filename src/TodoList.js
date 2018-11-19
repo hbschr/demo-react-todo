@@ -1,11 +1,11 @@
-import React from 'react';
-import TodoItem from './TodoItem';
-import NewTodoItem from './NewTodoItem';
+import React from 'react'
+import TodoItem from './TodoItem'
+import NewTodoItem from './NewTodoItem'
 
 
 export default class TodoList extends React.Component {
   constructor (props) {
-    super(props);
+    super(props)
     this.state = {
       list: [],
     }
@@ -35,6 +35,6 @@ export default class TodoList extends React.Component {
           {todoItems}
         </ul>
       </div>
-    );
+    )
   }
 }
