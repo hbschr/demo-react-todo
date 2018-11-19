@@ -80,4 +80,9 @@ body {
   svg {
     vertical-align: middle;
   }
+
+  .statistic > span {
+    @include grid_width(2);
+    text-align: center;
+  }
 }

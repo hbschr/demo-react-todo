@@ -51,8 +51,10 @@ export default class TodoList extends React.Component {
 
   render () {
     const newItem = this.handleCreate.bind(this)
-    const todoItems = this.state.list
-      .filter(item => !item.done || this.state.showDoneTasks)
+    const allTasks = this.state.list
+    const doneTasks = allTasks.filter(item => item.done)
+    const todoTasks = allTasks.filter(item => !item.done)
+    const todoItems = (this.state.showDoneTasks ? allTasks : todoTasks)
       .map((item, index) =>
         <TodoItem key={index} model={item} onDone={this.toggleDone.bind(this, item)} onDelete={this.handleDelete.bind(this, item)} />
       )
@@ -65,6 +67,11 @@ export default class TodoList extends React.Component {
         <ul>
           {todoItems}
         </ul>
+        <div className="statistic">
+          <span>done: {doneTasks.length}</span>
+          <span>todo: {todoTasks.length}</span>
+          <span>total: {allTasks.length}</span>
+        </div>
       </div>
     )
   }
