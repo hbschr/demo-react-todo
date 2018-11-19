@@ -1,15 +1,25 @@
 import React from 'react'
+import { objectStorage } from './LocalStorage'
 import TodoItem from './TodoItem'
 import NewTodoItem from './NewTodoItem'
+
+
+const [save, load] = objectStorage('todolist')
 
 
 export default class TodoList extends React.Component {
   constructor (props) {
     super(props)
+    const restoredList = load()
     this.state = {
-      list: [],
+      list: Array.isArray(restoredList) ? restoredList : [],
       showDoneTasks: false
     }
+  }
+
+  componentDidUpdate () {
+    // will also be called when state besides `list` is changed
+    save(this.state.list)
   }
 
   handleCreate (description) {
