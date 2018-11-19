@@ -7,12 +7,12 @@ import { FaTrash } from 'react-icons/fa'
  * props:
  * -   `model`: task object, containing two attributes: `description` and `done`
  * -   `onDelete`: callback which will be called with this items model when it shall be deleted
- * -   `onDone`: callback which will be called with this items model when its done-state shall be toggled
+ * -   `onToggleDone`: callback which will be called with this items model when its done-state shall be toggled
  */
 export default class TodoItem extends React.Component {
 
   handleToggle () {
-    this.props.onDone(this.props.model)
+    this.props.onToggleDone(this.props.model)
   }
 
   handleDelete () {

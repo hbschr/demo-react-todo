@@ -69,7 +69,7 @@ export default class TodoList extends React.Component {
     const todoTasks = allTasks.filter(item => !item.done)
     const todoItems = (this.state.showAllTasks ? allTasks : todoTasks)
       .map((item, index) =>
-        <TodoItem key={index} model={item} onDone={handleToggle} onDelete={handleDelete} />
+        <TodoItem key={index} model={item} onToggleDone={handleToggle} onDelete={handleDelete} />
       )
     return (
       <div className="todo-list">
