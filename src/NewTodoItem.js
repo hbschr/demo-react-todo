@@ -16,6 +16,9 @@ export default class NewTodoItem extends React.Component {
 
   handleSubmit (event) {
     event.preventDefault()
+    if (!this.state.value) {
+      return
+    }
     this.props.onSubmit(this.state.value)
     this.setState({value: ''})
   }
