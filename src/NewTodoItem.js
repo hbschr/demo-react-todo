@@ -26,7 +26,7 @@ export default class NewTodoItem extends React.Component {
     return (
       <form onSubmit={onSubmit}>
         <input value={this.state.value} onChange={onChange} />
-        <span class="icon" title="add"><FaPlus /></span>
+        <span className="icon" title="add"><FaPlus /></span>
       </form>
     )
   }

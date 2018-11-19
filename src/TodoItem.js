@@ -8,7 +8,7 @@ export default class TodoItem extends React.Component {
     return (
       <li>
         <span>{this.props.value}</span>
-        <span class="icon" title="delete" onClick={onDelete}><FaTrash /></span>
+        <span className="icon" title="delete" onClick={onDelete}><FaTrash /></span>
       </li>
     )
   }
