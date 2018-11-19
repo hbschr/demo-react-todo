@@ -4,7 +4,7 @@ $page_width: 800px;
 $column_count: 10;
 
 
-// simple grid without gutter
+// simple grid without gutter and without css grid layout module
 
 $column_width: $page_width / $column_count;
 
@@ -51,6 +51,11 @@ body {
     line-height: 2;
   }
 
+  button {
+    @include grid_push(2);
+    @include grid_width(3);
+  }
+
   form > input {
     @include grid_width(5);
   }
@@ -64,5 +69,15 @@ body {
   li > input {
     @include grid_width(1);
     text-align: center;
+  }
+
+  button,
+  input[type=checkbox],
+  .icon {
+    cursor: pointer;
+  }
+
+  svg {
+    vertical-align: middle;
   }
 }
