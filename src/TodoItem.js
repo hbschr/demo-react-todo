@@ -7,7 +7,8 @@ export default class TodoItem extends React.Component {
     const onDelete = this.props.onDelete
     return (
       <li>
-        <span>{this.props.value}</span>
+        <input type="checkbox" checked={this.props.model.done} onChange={this.props.onDone} />
+        <span>{this.props.model.description}</span>
         <span className="icon" title="delete" onClick={onDelete}><FaTrash /></span>
       </li>
     )

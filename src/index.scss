@@ -51,13 +51,17 @@ body {
     line-height: 2;
   }
 
-  form > input,
-  li > span:first-child {
+  form > input {
     @include grid_width(5);
   }
 
+  li > span:nth-child(2) {
+    @include grid_width(4);
+  }
+
   form > .icon,
-  li > .icon {
+  li > .icon,
+  li > input {
     @include grid_width(1);
     text-align: center;
   }
