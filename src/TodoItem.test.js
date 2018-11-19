@@ -41,6 +41,7 @@ it('does call `onToggleDone` callback on button click', () => {
   const component = shallow(<TodoItem model={taskItem} onToggleDone={onToggleDone} />)
   component.find('input').simulate('change')
   expect(onToggleDone.mock.calls.length).toBe(1)
+  expect(onToggleDone.mock.calls[0][0]).toBe(taskItem)
 })
 
 it('does call `onDelete` callback on button click', () => {
@@ -48,4 +49,5 @@ it('does call `onDelete` callback on button click', () => {
   const component = shallow(<TodoItem model={taskItem} onDelete={onDelete} />)
   component.find('.icon').simulate('click')
   expect(onDelete.mock.calls.length).toBe(1)
+  expect(onDelete.mock.calls[0][0]).toBe(taskItem)
 })
