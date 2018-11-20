@@ -9,6 +9,16 @@ Tech stack:
 -   Webpack
 -   Jest / Enzyme
 
+Tested in current Firefox and Chromium, have no Explorer available right now.
+
+To start over try:
+```sh
+# remove temp and build files
+make clean
+# remove all, like a fresh checkout
+make distclean
+```
+
 
 ## Quickstart
 
