@@ -7,6 +7,7 @@ Tech stack:
 -   React
 -   Sass
 -   Parcel
+-   Jest / Enzyme
 
 Tested in current Firefox and Chromium, have no Explorer available right now.
 
@@ -35,6 +36,10 @@ Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
+
+### `npm test`
+
+Launches the test runner.
 
 ### `npm run build`
 

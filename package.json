@@ -5,7 +5,13 @@
   "scripts": {
     "start": "parcel src/index.html --port 3000 --out-dir build/ --no-cache",
     "build": "parcel build src/index.html --public-url . --out-dir build/ --no-cache",
-    "test": "echo 'Error: tests not configured for parcel' && exit 1"
+    "test": "jest"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "react"
+    ]
   },
   "browserslist": [
     ">0.2%",
@@ -14,11 +20,19 @@
     "not op_mini all"
   ],
   "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.6.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "jest": "^23.6.0",
     "normalize.css": "^8.0.1",
     "parcel-bundler": "^1.10.3",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-icons": "^3.2.2",
+    "regenerator-runtime": "^0.13.1",
     "sass": "^1.15.1"
   }
 }
