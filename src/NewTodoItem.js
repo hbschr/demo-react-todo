@@ -33,7 +33,7 @@ export default class NewTodoItem extends React.Component {
     const onChange = this.handleChange.bind(this)
     return (
       <form onSubmit={onSubmit}>
-        <input value={this.state.value} onChange={onChange} />
+        <input placeholder="What's todo?" value={this.state.value} onChange={onChange} />
         <span className="icon" title="add" onClick={onSubmit}><FaPlus /></span>
       </form>
     )
