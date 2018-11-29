@@ -6,9 +6,7 @@ export const noop = () => {}
 /**
  * return a simple jest mock function that does nothing.
  */
-export function getMock () {
-  return jest.fn(noop)
-}
+export const getMock = () => jest.fn(noop)
 
 /**
  * mock event object, since `enzyme`s `simulate` doesn't provide any.
