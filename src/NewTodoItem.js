@@ -21,19 +21,21 @@ export default class NewTodoItem extends React.Component {
 
   handleSubmit (event) {
     event.preventDefault()
-    if (!this.state.value) {
+    const { value } = this.state
+    if (!value) {
       return
     }
-    this.props.onSubmit(this.state.value)
+    this.props.onSubmit(value)
     this.setState({value: ''})
   }
 
   render () {
     const onSubmit = this.handleSubmit.bind(this)
     const onChange = this.handleChange.bind(this)
+    const { value } = this.state
     return (
       <form onSubmit={onSubmit}>
-        <input placeholder="What's todo?" value={this.state.value} onChange={onChange} />
+        <input placeholder="What's todo?" value={value} onChange={onChange} />
         <span className="icon" title="add" onClick={onSubmit}><FaPlus /></span>
       </form>
     )

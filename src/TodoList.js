@@ -64,10 +64,10 @@ export default class TodoList extends React.Component {
     const handleDelete = this.handleDelete.bind(this)
     const handleToggle = this.handleToggle.bind(this)
     const handleToggleShowAll = this.handleToggleShowAll.bind(this)
-    const allTasks = this.state.list
-    const doneTasks = allTasks.filter(item => item.done)
-    const todoTasks = allTasks.filter(item => !item.done)
-    const todoItems = (this.state.showAllTasks ? allTasks : todoTasks)
+    const { list, showAllTasks } = this.state
+    const doneTasks = list.filter(item => item.done)
+    const todoTasks = list.filter(item => !item.done)
+    const todoItems = (showAllTasks ? list : todoTasks)
       .map((item, index) =>
         <TodoItem key={index} model={item} onToggleDone={handleToggle} onDelete={handleDelete} />
       )
@@ -75,7 +75,7 @@ export default class TodoList extends React.Component {
       <div className="todo-list">
         <NewTodoItem onSubmit={handleCreate} />
         <button onClick={handleToggleShowAll}>
-          {this.state.showAllTasks ? "Hide Finished Tasks" : "Show All Tasks"}
+          {showAllTasks ? "Hide Finished Tasks" : "Show All Tasks"}
         </button>
         <ul>
           {todoItems}
@@ -83,7 +83,7 @@ export default class TodoList extends React.Component {
         <div className="statistic">
           <span>done: {doneTasks.length}</span>
           <span>todo: {todoTasks.length}</span>
-          <span>total: {allTasks.length}</span>
+          <span>total: {list.length}</span>
         </div>
       </div>
     )
