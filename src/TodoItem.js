@@ -11,17 +11,13 @@ import { FaTrash } from 'react-icons/fa'
  */
 export default class TodoItem extends React.Component {
 
-  handleToggle () {
-    this.props.onToggleDone(this.props.model)
-  }
+  handleToggle = () => this.props.onToggleDone(this.props.model)
 
-  handleDelete () {
-    this.props.onDelete(this.props.model)
-  }
+  handleDelete = () => this.props.onDelete(this.props.model)
 
   render () {
-    const onDelete = this.handleDelete.bind(this)
-    const onToggle = this.handleToggle.bind(this)
+    const onDelete = this.handleDelete
+    const onToggle = this.handleToggle
     return (
       <li>
         <input type="checkbox" checked={this.props.model.done} onChange={onToggle} />

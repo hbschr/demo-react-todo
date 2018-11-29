@@ -32,38 +32,34 @@ export default class TodoList extends React.Component {
     save(this.state.list)
   }
 
-  handleCreate (description) {
+  handleCreate = description => {
     const newTodo = {
       description,
       done: false
     }
-    this.setState(state => ({
-      list: state.list.concat([newTodo])
-    }))
+    this.setState(state => ({list: state.list.concat([newTodo])}))
   }
 
-  handleDelete (todoItem) {
-    this.setState(state => ({
-      list: state.list.filter(item => item !== todoItem)
-    }))
+  handleDelete = todoItem => {
+    this.setState(state => ({list: state.list.filter(item => item !== todoItem)}))
   }
 
-  handleToggle (todoItem) {
+  handleToggle = todoItem => {
     // `setState` merges given state object with current one. have to manipulate list, just setting bool is not enough
     this.setState(state => ({
       list: state.list.map(item => item !== todoItem ? item : Object.assign({}, item, {done: !item.done}))
     }))
   }
 
-  handleToggleShowAll () {
+  handleToggleShowAll = () => {
     this.setState(state => ({showAllTasks: !state.showAllTasks}))
   }
 
   render () {
-    const handleCreate = this.handleCreate.bind(this)
-    const handleDelete = this.handleDelete.bind(this)
-    const handleToggle = this.handleToggle.bind(this)
-    const handleToggleShowAll = this.handleToggleShowAll.bind(this)
+    const handleCreate = this.handleCreate
+    const handleDelete = this.handleDelete
+    const handleToggle = this.handleToggle
+    const handleToggleShowAll = this.handleToggleShowAll
     const { list, showAllTasks } = this.state
     const doneTasks = list.filter(item => item.done)
     const todoTasks = list.filter(item => !item.done)

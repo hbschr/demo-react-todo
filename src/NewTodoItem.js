@@ -15,11 +15,11 @@ export default class NewTodoItem extends React.Component {
     }
   }
 
-  handleChange (event) {
+  handleChange = event => {
     this.setState({value: event.target.value})
   }
 
-  handleSubmit (event) {
+  handleSubmit = event => {
     event.preventDefault()
     const { value } = this.state
     if (!value) {
@@ -30,8 +30,8 @@ export default class NewTodoItem extends React.Component {
   }
 
   render () {
-    const onSubmit = this.handleSubmit.bind(this)
-    const onChange = this.handleChange.bind(this)
+    const onSubmit = this.handleSubmit
+    const onChange = this.handleChange
     const { value } = this.state
     return (
       <form onSubmit={onSubmit}>
